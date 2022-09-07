@@ -62,7 +62,7 @@ void loop() {
     delay(500);
   }
   // Make a HTTP request:
-  client.println("GET /toys/remote-boot HTTP/1.1");
+  client.println("GET /toys/remote-boot/" TOKEN " HTTP/1.1");
   client.println("Host: christophroyer.com");
   client.println("Connection: close");
   client.println();
