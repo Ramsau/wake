@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cmd="`wget -qO- https://christophroyer.com/toys/remote-boot`"
+cmd="`wget -qO- https://christophroyer.com/toys/remote-boot/supersecrettoken`"
 
 if [[ $cmd = "Linux" ]]; then
 	source "${BASH_SOURCE%/*}/linux.sh"

@@ -60,7 +60,7 @@ void loop() {
     Serial.println("retry");
     delay(500);
   }
-  // Make a HTTP request:
+  // Make a HTTP request
   client.println("GET /toys/remote-boot/" BOOT_TOKEN " HTTP/1.1");
   client.println("Host: christophroyer.com");
   client.println("Connection: close");
