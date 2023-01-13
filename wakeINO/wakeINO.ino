@@ -19,10 +19,9 @@ const int relais_pin = A7;
 
 void setup() {
   //Initialize serial and wait for port to open:
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
   Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
   pinMode(relais_pin, OUTPUT);
   digitalWrite(relais_pin, LOW);
 
@@ -51,7 +50,7 @@ void setup() {
     delay(500);
   }
   Serial.println("Connected to WiFi");
-
+  digitalWrite(LED_BUILTIN, LOW);
 }
 
 void loop() {
@@ -62,7 +61,7 @@ void loop() {
     delay(500);
   }
   // Make a HTTP request:
-  client.println("GET /toys/remote-boot HTTP/1.1");
+  client.println("GET /toys/remote-boot/" BOOT_TOKEN " HTTP/1.1");
   client.println("Host: christophroyer.com");
   client.println("Connection: close");
   client.println();
@@ -121,12 +120,8 @@ void linux() {
 void windows() {
   pressPower(200);
   delay(15000);
-  Keyboard.print(" ");
-  delay(500);
-  Keyboard.println(PASSWORD);
-  delay(1000);
   Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('6');
+  Keyboard.press('1');
   Keyboard.releaseAll();
 }
 
