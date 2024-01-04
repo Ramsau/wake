@@ -11,9 +11,9 @@ except:
 
 GPIO.setmode(GPIO.BCM)
 
+GPIO.setwarnings(False)
 GPIO.setup(pin, GPIO.OUT)
 GPIO.output(pin, GPIO.HIGH)
 time.sleep(press_for)
 GPIO.output(pin, GPIO.LOW)
 time.sleep(0.1)
-GPIO.cleanup()

@@ -1,6 +1,10 @@
 #!/bin/bash
+{
+echo "2" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio2/direction
+}
 
-cmd="`wget -qO- https://christophroyer.com/toys/remote-boot/supersecrettoken`"
+cmd="`wget -qO- https://christophroyer.com/toys/remote-boot/9970eda7-6f3b-4fb1-9390-4a344feefcd6`"
 
 if [[ $cmd = "Linux" ]]; then
 	source "${BASH_SOURCE%/*}/linux.sh"
